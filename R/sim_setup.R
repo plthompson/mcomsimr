@@ -31,7 +31,10 @@ dispersal_matrix <- function(landscape, torus = TRUE, disp_mat, kernel_exp = 0.1
     disp_mat <- apply(disp_mat, 1, function(x) x / sum(x))
   } else {
     disp_mat <- disp_mat
+    rownames(disp_mat) <- 1:nrow(disp_mat)
+    colnames(disp_mat) <- 1:ncol(disp_mat)
     if (is.matrix(disp_mat) == FALSE) stop ("disp_mat is not a matrix")
+    if (nrow(disp_mat) != nrow(landscape) | ncol(disp_mat) != nrow(landscape)) stop ("disp_mat does not have a row and column for each patch in landscape")
   }
 
   if (sum(colSums(disp_mat) > 1.001) > 0) warning ("dispersal from a patch to all others exceeds 100%. Make sure the rowSums(disp_mat) <= 1")

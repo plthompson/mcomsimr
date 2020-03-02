@@ -12,7 +12,7 @@ env_traits(
   env_niche_breadth = 0.5,
   optima,
   plot = TRUE,
-  spacing = "random"
+  optima_spacing = "random"
 )
 }
 \arguments{
@@ -29,6 +29,8 @@ env_traits(
 \item{optima}{optional values of environmental optima, should be a vector of length species}
 
 \item{plot}{option to show plot of environmental variation}
+
+\item{optima_spacing}{"even" or "random" to specify how optima should be distributed}
 }
 \value{
 dataframe an optima and niche breadth for each species

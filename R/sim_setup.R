@@ -145,6 +145,7 @@ env_generate <- function(landscape, env1Scale = 500, timesteps = 1000, plot = TR
 #' Generates species specific traits for density independent environmental responses
 #'
 #' @param species number of species to simulate
+#' @param max_r intrinsic growth rate in optimal environment, can be single value or vector of length species
 #' @param min_env minium environmental optima
 #' @param max_env minium environmental optima
 #' @param env_niche_breadth standard deviation of environmental niche breadth, can be single value or vector of length species
@@ -158,12 +159,9 @@ env_generate <- function(landscape, env1Scale = 500, timesteps = 1000, plot = TR
 #' @examples
 #' env_traits(species = 10)
 #'
-#' @import ggplot2
-#' @import dplyr
-#'
 #' @export
 #'
-env_traits <- function(species, min_env = 0, max_env = 1, env_niche_breadth = 0.5, optima, plot = TRUE, spacing = "random"){
+env_traits <- function(species, max_r = 5, min_env = 0, max_env = 1, env_niche_breadth = 0.5, optima, plot = TRUE, spacing = "random"){
   if (missing(optima)){
     if(spacing == "even"){
       optima <- seq(from = 0,to = 1,length = species)
@@ -175,15 +173,64 @@ env_traits <- function(species, min_env = 0, max_env = 1, env_niche_breadth = 0.
     if(length(optima)!=species) stop("optima is not a vector of length species")
     if(class(optima)!=numerix) stop("optima is not a numeric vector")
   }
-  env_traits.df <- data.frame(species = 1:species, optima = optima, env_niche_breadth = env_niche_breadth)
+  env_traits.df <- data.frame(species = 1:species, optima = optima, env_niche_breadth = env_niche_breadth, max_r = max_r)
 
   if(plot == TRUE){
     matplot(sapply(X = 1:species, FUN = function(x) {
       exp(-((env_traits.df$optima[x]-seq(min_env, max_env, length = 30))/(2*env_traits.df$env_niche_breadth[x]))^2)
-    }), type = "l", lty = 1, ylab = "r", xlab = "environment", ylim = c(0,1))
+    })*max_r, type = "l", lty = 1, ylab = "r", xlab = "environment", ylim = c(0,max_r))
 
   }
   return(env_traits.df)
 }
 
+#' Generate Species Interaction Matrix
+#'
+#' Generates density dependent matrix of per capita competition
+#'
+#' @param species number of species to simulate
+#' @param intra intraspecific competition coefficient, single value or vector of length species
+#' @param min_inter min interspecific comp. coefficient
+#' @param max_inter max interspecific comp. coefficient
+#' @param int_matrix option to supply externally generated competition matrix
+#' @param comp_scaler value to multiply all competition coefficients by
+#' @param plot option to show plot of competition coefficients
+#'
+#' @return species interaction matrix
+#'
+#' @author Patrick L. Thompson, \email{patrick.thompson@@zoology.ubc.ca}
+#'
+#' @examples
+#' env_traits(species = 10)
+#'
+#' @import ggplot2
+#' @import dplyr
+#'
+#' @export
+#'
+species_int_mat <- function(species, intra = 1, min_inter = 0, max_inter = 1.5, int_matrix, comp_scaler = 0.05, plot = TRUE){
+  if (missing(int_matrix)){
+    int_mat <- matrix(runif(n = species*species, min = min_inter, max = max_inter), nrow = species, ncol = species)
+    diag(int_mat) <- intra
+    int_mat <- int_mat * comp_scaler
+  } else {
+    if (is.matrix(int_matrix) == FALSE) stop("int_matrix must be a matrix")
+    if (dim(int_matrix) != c(species,species)) stop("int_matrix must be a matrix with a row and column for each species")
+    if (is.numeric(int_matrix) == FALSE) stop("int_matrix must be numeric")
+    }
 
+  if (plot == TRUE){
+    colnames(int_mat)<- 1:species
+    g <- as.data.frame(int_mat) %>%
+      dplyr::mutate(i = 1:species) %>%
+      tidyr::gather(key = j, value = competition, -i) %>%
+      dplyr::mutate(i = as.numeric(as.character(i)),
+                    j = as.numeric(as.character(j))) %>%
+      ggplot2::ggplot(ggplot2::aes(x = i, y = j, fill = competition))+
+      ggplot2::geom_tile()+
+      scale_fill_viridis_c(option = "E")
+
+    print(g)
+  }
+  return(int_mat)
+}

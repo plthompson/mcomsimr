@@ -1,4 +1,4 @@
-#' Simulate Metacommunity dynamics
+#' Simulate Metacommunity Dynamics
 #'
 #' @param patches number of patches to simulate
 #' @param species number of species to simulate
@@ -32,7 +32,8 @@
 #' @author Patrick L. Thompson, \email{patrick.thompson@@zoology.ubc.ca}
 #'
 #' @examples
-#' env_traits(species = 10)
+#' simulate_MC(patches = 6, species = 10, dispersal = 0.001, min_inter = 1, max_inter = 1, env_niche_breadth = 10)
+
 #'
 #' @import ggplot2
 #' @import dplyr

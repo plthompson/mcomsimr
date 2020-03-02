@@ -2,7 +2,7 @@
 % Please edit documentation in R/MC_simulate.R
 \name{simulate_MC}
 \alias{simulate_MC}
-\title{Simulate Metacommunity dynamics}
+\title{Simulate Metacommunity Dynamics}
 \usage{
 simulate_MC(
   patches,
@@ -84,10 +84,10 @@ simulate_MC(
 list that includes metacommunity dynamics, landscape coordinates, environmental conditions, species environmental traits, dispersal matrix, and the competition matrix
 }
 \description{
-Simulate Metacommunity dynamics
+Simulate Metacommunity Dynamics
 }
 \examples{
-env_traits(species = 10)
+simulate_MC(patches = 6, species = 10, dispersal = 0.001, min_inter = 1, max_inter = 1, env_niche_breadth = 10)
 
 }
 \author{

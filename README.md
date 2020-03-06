@@ -10,18 +10,7 @@ This package accompanies the manuscript:
 
 To cite package ‘mcomsimr’ in publications use this citation.
 
-A BibTeX entry for LaTeX users is
-
-  @Manual{,
-    title = {A process based framework for metacommunity ecology},
-    author = {Patrick L. Thompson and Laura Melissa Guzman and Luc {De Meester} and Zsófia Horváth and Robert Ptacnik and Bram Vanschoenwinkel and Duarte S. Viana and Jon M. Chase}
-    year = {2020},
-    note = {R package version 3.0-4},
-    publisher = {BioRxiv}
-    url = {https://doi.org/10.1101/832170},
-  }
-
-Simulates metacommunity dynamics based on three underlying processes: 
+The package simulates metacommunity dynamics based on three underlying processes: 
 1) density independent responses to abiotic conditions
 2) density dependent biotic interactions
 3) dispersal
@@ -40,3 +29,10 @@ devtools::install_github("plthompson/mcomsimr")
 ``` r
 library(gfplot)
 ```
+# Instructions
+The simulation is performed using the function:
+
+```r
+simulate_MC()
+```
+

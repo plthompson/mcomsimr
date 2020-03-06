@@ -39,7 +39,7 @@ The user must specify the number of patches and the number of species to simulat
 simulate_MC(patches = 5, species = 4)
 ```
 
-Key arguments in ```r simulate_MC``` for simulating dynamics:
+Key arguments in ```simulate_MC``` for simulating dynamics:
 ```r
 env_niche_breadth = # set the density independent niche breadth - low value (e.g. 0.5) results in strong responses to env. heterogeneity), high value (e.g. 10) results in nearly no response to env. heterogeneity
 dispersal = # set the probability that an individual disperses in each time step

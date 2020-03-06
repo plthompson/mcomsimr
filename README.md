@@ -35,15 +35,15 @@ The user must specify the number of patches and the number of species to simulat
 simulate_MC(patches = 5, species = 4)
 ```
 
-###Key arguments in ```simulate_MC```:
+### Key arguments in ```simulate_MC```:
 
-**1) density independent responses to abiotic conditions
+**1) density independent responses to abiotic conditions**
 
 ```env_niche_breadth``` - sets the density independent niche breadth 
   - low value (e.g. 0.5) results in strong responses to env. heterogeneity), 
   - high value (e.g. 10) results in nearly no response to env. heterogeneity
  
- **2) density dependent competition
+ **2) density dependent competition**
  
 ```intra``` - sets the strength of intraspecific competition (set to 1 in Thompson et al. 2020)
 
@@ -54,6 +54,6 @@ simulate_MC(patches = 5, species = 4)
 - ```min_inter = 0, max_inter = 0.5``` gives stabilizing competition scenario from Thompson et al. (2020)
 - ```min_inter = 0, max_inter = 1.5``` gives multiple competition scenario from Thompson et al. (2020)
 
-**3) dispersal
+**3) dispersal**
 
 ```dispersal``` - sets the probability that an individual disperses in each time step

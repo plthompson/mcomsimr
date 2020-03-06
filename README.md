@@ -1,7 +1,7 @@
 # mcomsimr
-###Simulate metacommunity dynamics in R
+### Simulate metacommunity dynamics in R
 
-##Installation
+## Installation
 
 The gfplot package can be installed and loaded with:
 

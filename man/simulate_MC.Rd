@@ -24,6 +24,7 @@ simulate_MC(
   min_inter = 0,
   max_inter = 1.5,
   comp_scaler = 0.05,
+  extirp_prob = 0,
   landscape,
   disp_mat,
   env.df,
@@ -69,6 +70,8 @@ simulate_MC(
 \item{max_inter}{max interspecific comp. coefficient}
 
 \item{comp_scaler}{value to multiply all competition coefficients by}
+
+\item{extirp_prob}{probability of local extirpation for each population in each time step (should be a very small value, e.g. 0 or 0.002)}
 
 \item{landscape}{optional dataframe with x and y columns for patch coordinates}
 

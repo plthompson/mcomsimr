@@ -20,6 +20,7 @@
 #' @param min_inter min interspecific comp. coefficient
 #' @param max_inter max interspecific comp. coefficient
 #' @param comp_scaler value to multiply all competition coefficients by
+#' @param extirp_prob probability of local extirpation for each population in each time step (should be a very small value, e.g. 0 or 0.002)
 #'
 #' @param landscape optional dataframe with x and y columns for patch coordinates
 #' @param disp_mat optional matrix with each column specifying the probability that an individual disperses to each other patch (row)
@@ -46,6 +47,7 @@ simulate_MC <- function(patches, species, dispersal = 0.01,
                         env1Scale = 500, timesteps = 1500, burn_in = 500, initialization = 200,
                         max_r = 5, min_env = 0, max_env = 1, env_niche_breadth = 0.5, optima_spacing = "random",
                         intra = 1, min_inter = 0, max_inter = 1.5, comp_scaler = 0.05,
+                        extirp_prob = 0,
                         landscape, disp_mat, env.df, env_optima, int_mat){
   if (missing(landscape)){
     landscape <- landscape_generate(patches = patches, plot = plot)
@@ -98,6 +100,7 @@ simulate_MC <- function(patches, species, dispersal = 0.01,
     I <- matrix(rpois(n = species*patches, lambda = disp_mat%*%E), ncol = species, nrow = patches)
 
     N <- N_hat - E + I
+    N[rbinom(n = species * patches, size = 1, prob = extirp_prob)>0] <- 0
 
     dynamics.df <- rbind(dynamics.df, data.frame(N = c(N), patch = 1:patches, species = rep(1:species, each = patches), env = env, time = i-initialization-burn_in))
     setTxtProgressBar(pb, i)

@@ -5,7 +5,6 @@
 #' @param dispersal dispersal probability between 0 and 0.5
 #' @param plot option to show plot of landscape
 #' @param torus whether to model the landscape as a torus
-#' @param disp_mat optional matrix with each column specifying the probability that an individual disperses to each other patch (row)
 #' @param kernel_exp the exponential rate at which dispersal decreases as a function of the distance between patches
 #' @param env1Scale scale of environmental autocorrelation between 0 and 1000
 #' @param timesteps number of timesteps to simulate

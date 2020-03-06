@@ -92,4 +92,4 @@ The function can accept predefined competition coefficients
 - ```int_matrix```
 This should be a square numeric matrix with the number of rows and columns corresponding to the number of species in the simulation. Each value in the matrix is the per-capita competition effect of species i (column) on species j (row). The diagnonal of the matrix specifies the intraspecific competition coefficients. Specifying ```int_matrix``` overides ```intra``` ```min_inter``` and ```max_inter``` arguments, but not ```comp_scaler```.
 
-####Please flag any issues or questions using the issues tab https://github.com/plthompson/mcomsimr/issues or email patrick.thompson@zoology.ubc.ca
+#### Please flag any issues or questions using the issues tab https://github.com/plthompson/mcomsimr/issues or email patrick.thompson@zoology.ubc.ca

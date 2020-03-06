@@ -51,10 +51,10 @@ sets the strength of intraspecific competition (set to 1 in Thompson et al. 2020
 
 ```min_inter```
 ```max_inter```
-sets the min and max values of a uniform distribution from which interspecific competition coefficients are drawn
-```min_inter = 1, max_inter = 1``` gives equal competition scenario from Thompson et al. (2020)
-```min_inter = 0, max_inter = 0.5``` gives stabilizing competition scenario from Thompson et al. (2020)
-```min_inter = 0, max_inter = 1.5``` gives multiple competition scenario from Thompson et al. (2020)
+- sets the min and max values of a uniform distribution from which interspecific competition coefficients are drawn
+- ```min_inter = 1, max_inter = 1``` gives equal competition scenario from Thompson et al. (2020)
+- ```min_inter = 0, max_inter = 0.5``` gives stabilizing competition scenario from Thompson et al. (2020)
+- ```min_inter = 0, max_inter = 1.5``` gives multiple competition scenario from Thompson et al. (2020)
 
 ```dispersal```
 sets the probability that an individual disperses in each time step

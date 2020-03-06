@@ -35,7 +35,8 @@ The user must specify the number of patches and the number of species to simulat
 simulate_MC(patches = 5, species = 4)
 ```
 
-### Key arguments in ```simulate_MC```:
+### Key arguments in
+```simulate_MC```:
 
 **1) density independent responses to abiotic conditions**
 

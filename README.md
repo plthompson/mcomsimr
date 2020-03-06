@@ -42,12 +42,14 @@ simulate_MC(patches = 5, species = 4)
 ***Key arguments in ```simulate_MC```:***
 
 1) density independent responses to abiotic conditions
+
 ```env_niche_breadth```
 sets the density independent niche breadth 
   - low value (e.g. 0.5) results in strong responses to env. heterogeneity), 
   - high value (e.g. 10) results in nearly no response to env. heterogeneity
  
  2) density dependent competition
+ 
 ```intra```sets the strength of intraspecific competition (set to 1 in Thompson et al. 2020)
 
 ```min_inter``` ```max_inter```sets the min and max values of a uniform distribution from which interspecific competition coefficients are drawn

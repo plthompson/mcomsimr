@@ -132,7 +132,7 @@ env_generate <- function(landscape, env.df, env1Scale = 500, timesteps = 1000, p
       if((max(env.initial$env1)-min(env.initial$env1)) > 0.6) {break}
     }
   } else {
-    if(names(env.df) != c("env1", "x", "y", "time")) stop("env.df must be a dataframe with columns: env1, x, y, time")
+    if(all.equal(names(env.df), c("env1", "x", "y", "time")) != TRUE) stop("env.df must be a dataframe with columns: env1, x, y, time")
   }
 
   if(plot == TRUE){

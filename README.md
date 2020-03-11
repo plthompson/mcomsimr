@@ -82,7 +82,7 @@ The sum of each column should not exceed 1. If the sum of a column is less than 
 
 The function accepts predefined environmental conditions.
 -```env.df =```
-This should be a dataframe with columns: env1 - numeric environmental conditions; x - x coordinate of patch; y - y coordinate of patch; time - time step (include conditions during burn in period). At the moment, only one environmental variable is supported. The total number of time steps should equal the total number of timesteps + the length of the burn_in period. Specifying ```env.df``` overides the ```env1Scale``` argument. 
+This should be a dataframe with columns: env1 - numeric environmental conditions;patch - patch number; time - time step (include conditions during burn in period). At the moment, only one environmental variable is supported. The total number of time steps should equal the total number of timesteps + the length of the burn_in period. Specifying ```env.df``` overides the ```env1Scale``` argument. 
 
 The function can accept predefined environmental optima for each species
 - ```env_optima```

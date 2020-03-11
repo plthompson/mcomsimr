@@ -112,14 +112,15 @@ simulate_MC <- function(patches, species, dispersal = 0.01,
   env.df <- rbind(env.df_init,env.df)
 
   if(plot == TRUE){
+    sample_patches <- sample(1:patches, size = min(c(patches,6)), replace = FALSE)
     g <- dynamics.df %>%
       filter(time %in% seq(min(dynamics.df$time),max(dynamics.df$time), by =10)) %>%
-      filter(patch %in% sample(1:patches, size = min(c(patches,6)), replace = FALSE)) %>%
+      filter(patch %in% sample_patches) %>%
       ggplot(aes(x = time, y = N, group = species, color = optima))+
       geom_line()+
       facet_wrap(~patch)+
       scale_color_viridis_c()+
-      geom_path(data = env.df, aes(y = -5, x = time_run, color = env1, group = NULL), size = 3)
+      geom_path(data = filter(env.df, patch %in% sample_patches), aes(y = -5, x = time_run, color = env1, group = NULL), size = 3)
 
     print(g)
   }

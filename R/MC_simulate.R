@@ -90,7 +90,7 @@ simulate_MC <- function(patches, species, dispersal = 0.01,
    } else {
      env <- env.df$env1[env.df$time == (i-initialization)]
    }
-    r <- max_r*exp(-(matrix(env_traits.df$optima - rep(env,each = species), nrow = patches, ncol = species)/(2*env_traits.df$env_niche_breadth))^2)
+    r <- max_r*exp(-(t((env_traits.df$optima - matrix(rep(env, each = species), nrow = species, ncol = patches))/(2*env_traits.df$env_niche_breadth)))^2)
     N_hat <- N*r/(1+N%*%int_mat)
     N_hat[N_hat < 0] <- 0
     N_hat <- matrix(rpois(n = species*patches, lambda = N_hat), ncol = species, nrow = patches)

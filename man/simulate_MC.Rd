@@ -77,7 +77,7 @@ simulate_MC(
 
 \item{disp_mat}{optional matrix with each column specifying the probability that an individual disperses to each other patch (row)}
 
-\item{env.df}{optional dataframe with environmental conditions with columns: env1, x, y, time}
+\item{env.df}{optional dataframe with environmental conditions with columns: env1, patch, time}
 
 \item{env_optima}{optional values of environmental optima, should be a vector of length species}
 

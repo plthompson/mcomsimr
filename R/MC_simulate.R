@@ -23,7 +23,7 @@
 #'
 #' @param landscape optional dataframe with x and y columns for patch coordinates
 #' @param disp_mat optional matrix with each column specifying the probability that an individual disperses to each other patch (row)
-#' @param env.df optional dataframe with environmental conditions with columns: env1, x, y, time
+#' @param env.df optional dataframe with environmental conditions with columns: env1, patch, time
 #' @param env_optima optional values of environmental optima, should be a vector of length species
 #' @param int_matrix optional externally generated competition matrix
 
@@ -106,6 +106,10 @@ simulate_MC <- function(patches, species, dispersal = 0.01,
   }
   close(pb)
   dynamics.df <- left_join(dynamics.df, env_traits.df)
+  env.df$time_run <- env.df$time - burn_in
+
+  env.df_init <- data.frame(env1 = env.df$env1[env.df$time == 1], patch = 1:patches, time = NA, time_run = rep(seq(-(burn_in + initialization), -burn_in, by = 1), each = patches))
+  env.df <- rbind(env.df_init,env.df)
 
   if(plot == TRUE){
     g <- dynamics.df %>%
@@ -114,7 +118,8 @@ simulate_MC <- function(patches, species, dispersal = 0.01,
       ggplot(aes(x = time, y = N, group = species, color = optima))+
       geom_line()+
       facet_wrap(~patch)+
-      scale_color_viridis_c()
+      scale_color_viridis_c()+
+      geom_path(data = env.df, aes(y = -5, x = time_run, color = env1, group = NULL), size = 3)
 
     print(g)
   }

@@ -114,7 +114,7 @@ simulate_MC <- function(patches, species, dispersal = 0.01,
   if(plot == TRUE){
     g <- dynamics.df %>%
       filter(time %in% seq(min(dynamics.df$time),max(dynamics.df$time), by =10)) %>%
-      filter(patch %in% sample(1:patches, size = min(patches,6), replace = FALSE)) %>%
+      filter(patch %in% sample(1:patches, size = min(c(patches,6)), replace = FALSE)) %>%
       ggplot(aes(x = time, y = N, group = species, color = optima))+
       geom_line()+
       facet_wrap(~patch)+

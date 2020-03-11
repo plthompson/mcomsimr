@@ -86,7 +86,7 @@ simulate_MC <- function(patches, species, dispersal = 0.01,
      if(i %in% seq(10,100, by = 10)){
        N <- N + matrix(rpois(n = species*patches, lambda = 0.5), nrow = patches, ncol = species)
      }
-     env <- env.df$env1[1]
+     env <- env.df$env1[env.df$time == 1]
    } else {
      env <- env.df$env1[env.df$time == (i-initialization)]
    }

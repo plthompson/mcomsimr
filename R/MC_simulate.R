@@ -95,9 +95,7 @@ simulate_MC <- function(patches, species, dispersal = 0.01,
     N_hat[N_hat < 0] <- 0
     N_hat <- matrix(rpois(n = species*patches, lambda = N_hat), ncol = species, nrow = patches)
 
-    #E <- matrix(rpois(n = species*patches, lambda = dispersal*N_hat), ncol = species, nrow = patches)
     E <- matrix(rbinom(n = patches * species, size = N_hat, prob = dispersal), nrow = patches, ncol = species)
-    #I <- matrix(rpois(n = species*patches, lambda = disp_mat%*%E), ncol = species, nrow = patches)
     dispSP <- colSums(E)
     I_hat_raw <- disp_mat%*%E
     I_hat <- t(t(I_hat_raw)/colSums(I_hat_raw))

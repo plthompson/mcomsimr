@@ -43,7 +43,7 @@
 simulate_MC <- function(patches, species, dispersal = 0.01,
                         plot = TRUE,
                         torus=TRUE, kernel_exp = 0.1,
-                        env1Scale = 500, timesteps = 1500, burn_in = 800, initialization = 200,
+                        env1Scale = 500, timesteps = 1200, burn_in = 800, initialization = 200,
                         max_r = 5, min_env = 0, max_env = 1, env_niche_breadth = 0.5, optima_spacing = "random",
                         intra = 1, min_inter = 0, max_inter = 1.5, comp_scaler = 0.05,
                         extirp_prob = 0,
@@ -99,8 +99,11 @@ simulate_MC <- function(patches, species, dispersal = 0.01,
     dispSP <- colSums(E)
     I_hat_raw <- disp_mat%*%E
     I_hat <- t(t(I_hat_raw)/colSums(I_hat_raw))
+    I_hat[is.nan(I_hat)] <- 1
     I <- sapply(1:species, function(x) {
+      if(dispSP[x]>0){
       table(factor(sample(x = patches, size = dispSP[x], replace = TRUE, prob = I_hat[,x]), levels = 1:patches))
+        } else {rep(0, patches)}
     })
 
     N <- N_hat - E + I

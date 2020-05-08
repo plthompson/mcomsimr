@@ -23,7 +23,7 @@ devtools::install_github("plthompson/mcomsimr")
 ```
 
 ``` r
-library(gfplot)
+library(mcomsimr)
 ```
 ## Instructions
 The simulation is performed using the function:

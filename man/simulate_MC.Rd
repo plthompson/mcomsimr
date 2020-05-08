@@ -13,7 +13,7 @@ simulate_MC(
   kernel_exp = 0.1,
   env1Scale = 500,
   timesteps = 1500,
-  burn_in = 500,
+  burn_in = 800,
   initialization = 200,
   max_r = 5,
   min_env = 0,

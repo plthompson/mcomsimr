@@ -2,7 +2,7 @@
 #'
 #' @param patches number of patches to simulate
 #' @param species number of species to simulate
-#' @param dispersal dispersal probability between 0 and 0.5
+#' @param dispersal dispersal probability between 0 and 1
 #' @param plot option to show plot of landscape
 #' @param torus whether to model the landscape as a torus
 #' @param kernel_exp the exponential rate at which dispersal decreases as a function of the distance between patches
@@ -95,7 +95,7 @@ simulate_MC <- function(patches, species, dispersal = 0.01,
     N_hat[N_hat < 0] <- 0
     N_hat <- matrix(rpois(n = species*patches, lambda = N_hat), ncol = species, nrow = patches)
 
-    E <- matrix(rbinom(n = patches * species, size = N_hat, prob = dispersal), nrow = patches, ncol = species)
+    E <- matrix(rbinom(n = patches * species, size = N_hat, prob = rep(dispersal, each = patches)), nrow = patches, ncol = species)
     dispSP <- colSums(E)
     I_hat_raw <- disp_mat%*%E
     I_hat <- t(t(I_hat_raw)/colSums(I_hat_raw))

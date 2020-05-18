@@ -12,7 +12,7 @@ simulate_MC(
   torus = TRUE,
   kernel_exp = 0.1,
   env1Scale = 500,
-  timesteps = 1500,
+  timesteps = 1200,
   burn_in = 800,
   initialization = 200,
   max_r = 5,
@@ -37,7 +37,7 @@ simulate_MC(
 
 \item{species}{number of species to simulate}
 
-\item{dispersal}{dispersal probability between 0 and 0.5}
+\item{dispersal}{dispersal probability between 0 and 1}
 
 \item{plot}{option to show plot of landscape}
 

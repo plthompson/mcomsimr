@@ -13,6 +13,8 @@ The package simulates metacommunity dynamics based on three underlying processes
 
 Stochasticity occurs through the probabalistic realization of these three processes. 
 
+Note, this package was not used to produce the simulations in the manuscript. This was done using code in the Julia computing language, which is much faster. This package was written after the Julia code, to make our model easily accessible. Therefore, there may be discrepancies between the output of this model and that of the Julia code.
+
 ## Installation
 
 The mcomsimr package can be installed and loaded with:

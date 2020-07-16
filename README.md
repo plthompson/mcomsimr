@@ -2,7 +2,7 @@
 
 This package accompanies the manuscript: 
 
-**Patrick L. Thompson, Laura Melissa Guzman, Luc De Meester, Zsófia Horváth, Robert Ptacnik, Bram Vanschoenwinkel, Duarte S. Viana, & Jon M. Chase. 2020. A process based framework for metacommunity ecology. BioRxiv https://doi.org/10.1101/832170** 
+**Patrick L. Thompson, Laura Melissa Guzman, Luc De Meester, Zsófia Horváth, Robert Ptacnik, Bram Vanschoenwinkel, Duarte S. Viana, & Jon M. Chase. 2020. A process based framework for metacommunity ecology. Ecology Letters. *Early View* https://doi.org/10.1111/ele.13568** 
 
 To cite package ‘mcomsimr’ in publications use this citation.
 

@@ -81,7 +81,7 @@ simulate_MC(
 
 \item{env_optima}{optional values of environmental optima, should be a vector of length species}
 
-\item{int_matrix}{optional externally generated competition matrix}
+\item{int_mat}{optional externally generated competition matrix}
 }
 \value{
 list that includes metacommunity dynamics, landscape coordinates, environmental conditions, species environmental traits, dispersal matrix, and the competition matrix

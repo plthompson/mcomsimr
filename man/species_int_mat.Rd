@@ -9,7 +9,7 @@ species_int_mat(
   intra = 1,
   min_inter = 0,
   max_inter = 1.5,
-  int_matrix,
+  int_mat,
   comp_scaler = 0.05,
   plot = TRUE
 )
@@ -23,7 +23,7 @@ species_int_mat(
 
 \item{max_inter}{max interspecific comp. coefficient}
 
-\item{int_matrix}{option to supply externally generated competition matrix}
+\item{int_mat}{option to supply externally generated competition matrix}
 
 \item{comp_scaler}{value to multiply all competition coefficients by}
 

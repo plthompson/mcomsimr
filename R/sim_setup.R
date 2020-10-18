@@ -198,7 +198,7 @@ env_traits <- function(species, max_r = 5, min_env = 0, max_env = 1, env_niche_b
 #' @param intra intraspecific competition coefficient, single value or vector of length species
 #' @param min_inter min interspecific comp. coefficient
 #' @param max_inter max interspecific comp. coefficient
-#' @param int_matrix option to supply externally generated competition matrix
+#' @param int_mat option to supply externally generated competition matrix
 #' @param comp_scaler value to multiply all competition coefficients by
 #' @param plot option to show plot of competition coefficients
 #'
@@ -214,15 +214,15 @@ env_traits <- function(species, max_r = 5, min_env = 0, max_env = 1, env_niche_b
 #'
 #' @export
 #'
-species_int_mat <- function(species, intra = 1, min_inter = 0, max_inter = 1.5, int_matrix, comp_scaler = 0.05, plot = TRUE){
-  if (missing(int_matrix)){
+species_int_mat <- function(species, intra = 1, min_inter = 0, max_inter = 1.5, int_mat, comp_scaler = 0.05, plot = TRUE){
+  if (missing(int_mat)){
     int_mat <- matrix(runif(n = species*species, min = min_inter, max = max_inter), nrow = species, ncol = species)
     diag(int_mat) <- intra
     int_mat <- int_mat * comp_scaler
   } else {
-    if (is.matrix(int_matrix) == FALSE) stop("int_matrix must be a matrix")
-    if (sum(dim(int_matrix) != c(species,species))>0) stop("int_matrix must be a matrix with a row and column for each species")
-    if (is.numeric(int_matrix) == FALSE) stop("int_matrix must be numeric")
+    if (is.matrix(int_mat) == FALSE) stop("int_mat must be a matrix")
+    if (sum(dim(int_mat) != c(species,species))>0) stop("int_mat must be a matrix with a row and column for each species")
+    if (is.numeric(int_mat) == FALSE) stop("int_mat must be numeric")
   }
 
   if (plot == TRUE){

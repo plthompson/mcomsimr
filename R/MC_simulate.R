@@ -25,7 +25,7 @@
 #' @param disp_mat optional matrix with each column specifying the probability that an individual disperses to each other patch (row)
 #' @param env.df optional dataframe with environmental conditions with columns: env1, patch, time
 #' @param env_optima optional values of environmental optima, should be a vector of length species
-#' @param int_matrix optional externally generated competition matrix
+#' @param int_mat optional externally generated competition matrix
 
 #' @return list that includes metacommunity dynamics, landscape coordinates, environmental conditions, species environmental traits, dispersal matrix, and the competition matrix
 #'
@@ -75,7 +75,7 @@ simulate_MC <- function(patches, species, dispersal = 0.01,
   if (missing(int_mat)){
     int_mat <- species_int_mat(species = species, intra = intra, min_inter = min_inter, max_inter = max_inter, comp_scaler = comp_scaler, plot = TRUE)
   } else {
-    int_mat <- species_int_mat(species = species, int_matrix = int_mat, intra = intra, min_inter = min_inter, max_inter = max_inter, comp_scaler = comp_scaler, plot = TRUE)
+    int_mat <- species_int_mat(species = species, int_mat = int_mat, intra = intra, min_inter = min_inter, max_inter = max_inter, comp_scaler = comp_scaler, plot = TRUE)
   }
 
   dynamics.df <- data.frame()

@@ -42,10 +42,10 @@
 #'
 simulate_MC <- function(patches, species, dispersal = 0.01,
                         plot = TRUE,
-                        torus=TRUE, kernel_exp = 0.1,
+                        torus = FALSE, kernel_exp = 0.1,
                         env1Scale = 500, timesteps = 1200, burn_in = 800, initialization = 200,
                         max_r = 5, min_env = 0, max_env = 1, env_niche_breadth = 0.5, optima_spacing = "random",
-                        intra = 1, min_inter = 0, max_inter = 1.5, comp_scaler = 0.05,
+                        intra = 1, min_inter = 0, max_inter = 1, comp_scaler = 0.05,
                         extirp_prob = 0,
                         landscape, disp_mat, env.df, env_optima, int_mat){
   if (missing(landscape)){

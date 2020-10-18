@@ -2,7 +2,7 @@
 
 This package accompanies the manuscript: 
 
-**Patrick L. Thompson, Laura Melissa Guzman, Luc De Meester, Zsófia Horváth, Robert Ptacnik, Bram Vanschoenwinkel, Duarte S. Viana, & Jon M. Chase. 2020. A process based framework for metacommunity ecology. BioRxiv https://doi.org/10.1101/832170** 
+**Patrick L. Thompson, Laura Melissa Guzman, Luc De Meester, Zsófia Horváth, Robert Ptacnik, Bram Vanschoenwinkel, Duarte S. Viana, & Jon M. Chase. 2020. A process based framework for metacommunity ecology. Ecology Letters. *Early View* https://doi.org/10.1111/ele.13568** 
 
 To cite package ‘mcomsimr’ in publications use this citation.
 
@@ -12,6 +12,8 @@ The package simulates metacommunity dynamics based on three underlying processes
 3) dispersal
 
 Stochasticity occurs through the probabalistic realization of these three processes. 
+
+Note, this package was not used to produce the simulations in the manuscript. This was done using code in the Julia computing language, which is much faster. This package was written after the Julia code, to make our model easily accessible. Therefore, there may be discrepancies between the output of this model and that of the Julia code.
 
 ## Installation
 

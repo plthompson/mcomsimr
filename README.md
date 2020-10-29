@@ -1,4 +1,4 @@
-# mcomsimr: An R package for simulating metacommunity dynamics in R
+# mcomsimr: A package for simulating metacommunity dynamics in R
 
 This package accompanies the manuscript: 
 

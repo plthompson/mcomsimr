@@ -17,10 +17,11 @@
 #'
 landscape_generate <- function(patches = 100, xy, plot = TRUE) {
   if (missing(xy)){
-    repeat {
-      landscape<-round(data.frame(x = runif(patches, min = 1, max = 100), y = runif(patches, min = 1, max = 100)))
-      if (dim(unique(landscape))[1] == dim(landscape)[1]) {break}
-    }
+    
+    if(patches > 10000) stop("Maximum number of patches is 10000.")
+    positions_linear = sample(0:9999, patches)
+    landscape = data.frame(x = floor(positions_linear / 100)+1, y = (positions_linear %% 100) + 1)
+    
     clusters <- hclust(dist(landscape),method = "ward.D2")
 
     landscape <- landscape[clusters$order, ]

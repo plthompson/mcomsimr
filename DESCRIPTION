@@ -15,7 +15,6 @@ Imports:
     som.nn,
     viridis,
     tidyr,
-    RandomFields,
     vegan,
     magrittr
 RoxygenNote: 7.2.0

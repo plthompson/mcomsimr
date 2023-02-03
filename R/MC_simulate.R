@@ -61,6 +61,7 @@ simulate_MC <- function(patches, species, dispersal = 0.01,
   }
 
   if (missing(env.df)){
+    warning ("Environment is not spatially autocorrelated in the current version of the package and so results will differ from Thompson et al. 2020 Ecology Letters.")
     env.df <- env_generate(landscape = landscape, env1Scale = env1Scale, timesteps = timesteps+burn_in, plot = plot)
   } else {
     env.df <- env_generate(landscape = landscape, env.df = env.df, env1Scale = env1Scale, timesteps = timesteps+burn_in, plot = plot)

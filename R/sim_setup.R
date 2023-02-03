@@ -123,9 +123,9 @@ dispersal_matrix <- function(landscape, torus = TRUE, disp_mat, kernel_exp = 0.1
 env_generate <- function(landscape, env.df, env1Scale = 2, timesteps = 1000, plot = TRUE){
   if (missing(env.df)){
     repeat {
-      env1 <- data.frame()
+      env.df <- data.frame()
       for(i in 1:nrow(landscape)){
-        env1 = phase.partnered(n = timesteps, gamma = 2, mu = 0.5, sigma = 0.25)$timeseries[,1]
+        env1 = phase.partnered(n = timesteps, gamma = env1Scale, mu = 0.5, sigma = 0.25)$timeseries[,1]
         env.df <- rbind(env.df, data.frame(env1 = vegan::decostand(env1,method = "range"), patch = i, time = 1:timesteps))
       }
       env.initial <- env.df[env.df$time == 1,]
@@ -138,7 +138,7 @@ env_generate <- function(landscape, env.df, env1Scale = 2, timesteps = 1000, plo
   if(plot == TRUE){
     g<-ggplot2::ggplot(env.df, aes(x = time, y = env1, group = patch, color = factor(patch)))+
       ggplot2::geom_line()+
-      scale_color_viridis_d(guide=F)
+      scale_color_viridis_d(guide = "none")
     print(g)
   }
 

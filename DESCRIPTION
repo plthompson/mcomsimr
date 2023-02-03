@@ -14,6 +14,7 @@ Imports:
     dplyr,
     som.nn,
     viridis,
+    synchrony,
     tidyr,
     vegan,
     magrittr
